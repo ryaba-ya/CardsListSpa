@@ -1,22 +1,29 @@
 import React from 'react';
 import Card from '../Card';
+import axios from 'axios';
 
 
+import React, { useEffect, useState } from 'react';
+import Card from './Card'; // Убедитесь, что импортировали компонент Card
+import axios from 'axios';
 
+const CardList = ({ onLikeClick, onDeleteClick }) => {
+  const [animeList, setAnimeList] = useState([]);
 
-const CardList = ({ animeList, onLikeClick, onDeleteClick }) => {
-  return (
-    <div className="card-list">
-      {animeList.map((anime) => (
-        <Card
-          key={anime.anime_id}
-          animeData={anime}
-          onLikeClick={() => onLikeClick(anime.anime_id)}
-          onDeleteClick={() => onDeleteClick(anime.anime_id)}
-        />
-      ))}
-    </div>
-  );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://anime-facts-rest-api.herokuapp.com/api/v1');
+        onFetchData(response.data.data);
+      } catch (error) {
+        console.error('Ошибка при получении данных из API:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Остальной код компонента CardList
 };
 
 export default CardList;
