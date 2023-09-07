@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import CardList from './components/CardList/CardList'; // Предположим, что у вас есть компонент CardList
 
 function App() {
+   // Определение функции handleLikeClick
+   const handleLikeClick = () => {
+    // Логика обработки нажатия на кнопку Like
+  };
+
+  // Определение функции handleDeleteClick
+  const handleDeleteClick = () => {
+    // Логика обработки нажатия на кнопку Delete
+  };
   const [animeList, setAnimeList] = useState([]); // Состояние для списка аниме
 
   // Функция для обновления списка аниме данными из API
