@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import Card from '../Card'; // Убедитесь, что импортировали компонент Card
+import Card from '../Card';
 import axios from 'axios';
 
 const CardList = ({ onLikeClick, onDeleteClick }) => {
