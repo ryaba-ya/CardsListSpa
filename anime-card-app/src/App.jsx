@@ -12,8 +12,8 @@ const Title = styled.h1`
 `;
 
 function App() {
-  eslint-disable-next-line
-  const [cards, setCards] = useState([]); // eslint-disable-next-line
+  
+  const [cards, ] = useState([]); // eslint-disable-next-line
 
   // Функции для работы с карточками, добавления, удаления и лайков
 
