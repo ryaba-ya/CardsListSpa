@@ -28,10 +28,27 @@ function App() {
           </div>
         ))}
       </div>
+      <style>
+        {`
+          .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+
+          .card {
+            width: 200px; /* Здесь можно установить желаемую ширину карточки */
+            margin: 10px;
+          }
+
+          .card img {
+            max-width: 100%;
+            height: auto;
+          }
+        `}
+      </style>
     </div>
   );
 }
 
 export default App;
-
-
