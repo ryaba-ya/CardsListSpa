@@ -1,5 +1,5 @@
 import React from 'react';
-
+import cardData from '../src/components/card-data.json'
 import Card from '../src/components/Card/Card'
 function App() {
   return (
