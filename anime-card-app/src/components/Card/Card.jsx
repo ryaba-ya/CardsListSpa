@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Card = ({ animeData, onLikeClick, onDeleteClick }) => {
+const Card = ({ imageSrc, onLikeClick, onDeleteClick }) => {
   return (
     <div className="card">
-      <img src={animeData.anime_img} alt={animeData.anime_name} />
-      <h3>{animeData.anime_name}</h3>
-      <p>{animeData.anime_info}</p>
+      <img src={imageSrc} alt="Anime" />
       <button onClick={onLikeClick}>Like</button>
       <button onClick={onDeleteClick}>Delete</button>
     </div>

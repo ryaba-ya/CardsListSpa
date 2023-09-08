@@ -1,36 +1,42 @@
+import React, { useState } from 'react';
+import Card from './Card';
 
-import React, { useEffect, useState } from 'react';
-import Card from '../Card/Card';
-import axios from 'axios';
+const CardList = () => {
+  // Создайте состояние для хранения списка карточек
+  const [cards, setCards] = useState([]);
 
-const CardList = ({ onLikeClick, onDeleteClick }) => {
-  const [animeList, setAnimeList] = useState([]); // Состояние для списка аниме
+  // Функция для добавления новой карточки
+  const addCard = () => {
+    // Генерируйте случайное изображение или используйте ссылку на изображение
+    const randomImage = `https://source.unsplash.com/random/${Math.random()}`;
+    const newCard = {
+      id: Date.now(),
+      imageSrc: randomImage,
+    };
 
-  // Функция для запроса данных из API и обновления состояния
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('https://anime-facts-rest-api.herokuapp.com/api/v1'); // Замените 'URL_ВАШЕГО_API' на реальный URL вашего API
-      setAnimeList(response.data.data); // Сохраняем полученные данные в состоянии
-    } catch (error) {
-      console.error('Ошибка при получении данных из API:', error);
-    }
+    // Добавьте новую карточку в состояние
+    setCards([...cards, newCard]);
   };
 
-  // Вызываем fetchData при монтировании компонента
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // Функция для удаления карточки по ID
+  const deleteCard = (id) => {
+    const updatedCards = cards.filter((card) => card.id !== id);
+    setCards(updatedCards);
+  };
 
   return (
-    <div className="card-list">
-      {animeList.map((animeData) => (
-        <Card
-          key={animeData.anime_id}
-          animeData={animeData}
-          onLikeClick={() => onLikeClick(animeData.anime_id)}
-          onDeleteClick={() => onDeleteClick(animeData.anime_id)}
-        />
-      ))}
+    <div>
+      <button onClick={addCard}>Add Card</button>
+      <div className="card-list">
+        {cards.map((card) => (
+          <Card
+            key={card.id}
+            imageSrc={card.imageSrc}
+            onLikeClick={() => {} /* Добавьте логику лайка */}
+            onDeleteClick={() => deleteCard(card.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
