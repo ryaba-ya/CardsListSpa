@@ -22,16 +22,22 @@ const CardInfo = styled.div`
   text-align: center;
 `;
 
-function Card({ cardData }) {
+
+function Card(props) {
   return (
-    <CardContainer>
-      <CardImage src={cardData.urls.full} alt={cardData.id} />
-      <CardInfo>
-        <h2>{cardData.user.name}</h2>
-        <p>Likes: {cardData.likes}</p>
-      </CardInfo>
-    </CardContainer>
+      <div className="card">
+          <div className="card-body">
+              <img src={props.imgLink} alt={props.title}/>
+              <h4 className="card-title">{props.title}</h4>
+              <p className="card-text">{props.description}</p>
+          </div>
+          <div className="card-footer">
+              <span className="card-price">${props.price}</span>
+              <button className="card-add">Заказать</button>
+          </div>
+      </div>
   );
+
 }
 
 export default Card;
