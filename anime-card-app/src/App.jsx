@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import CardList from './components/CardList/CardList';
-
-const AppContainer = styled.div`
-  text-align: center;
-`;
-
-const Title = styled.h1`
-  font-size: 24px;
-  margin: 20px;
-`;
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-  
-  const [cards, ] = useState([]); // eslint-disable-next-line
+  const [dogImage, setDogImage] = useState('');
 
-  // Функции для работы с карточками, добавления, удаления и лайков
+  useEffect(() => {
+    // Выполните HTTP-запрос к API для получения случайного изображения собаки
+    axios
+      .get('https://dog.ceo/api/breeds/image/random')
+      .then((response) => {
+        // Обработка успешного ответа и установка URL-адреса изображения в состоянии
+        setDogImage(response.data.message);
+      })
+      .catch((error) => {
+        // Обработка ошибки
+        console.error('Error fetching dog image:', error);
+      });
+  }, []);
 
   return (
-    <AppContainer>
-      <Title>Список карточек</Title>
-      <CardList cards={cards} />
-      {/* Добавьте сюда компоненты LikeButton, DeleteButton и FilterButton */}
-    </AppContainer>
+    <div>
+      <h1>Случайная собака</h1>
+      {dogImage && <img src={dogImage} alt="Случайная собака" />}
+    </div>
   );
 }
 
