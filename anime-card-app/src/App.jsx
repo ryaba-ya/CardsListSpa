@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+
 import Card from '../src/components/Card/Card'
 function App() {
   return (
