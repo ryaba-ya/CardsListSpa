@@ -1,3 +1,5 @@
+// Card.js
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -23,10 +25,10 @@ const CardInfo = styled.div`
 function Card({ cardData }) {
   return (
     <CardContainer>
-      <CardImage src={cardData.image} alt={cardData.title} />
+      <CardImage src={cardData.urls.full} alt={cardData.id} />
       <CardInfo>
-        <h2>{cardData.title}</h2>
-        <p>{cardData.description}</p>
+        <h2>{cardData.user.name}</h2>
+        <p>Likes: {cardData.likes}</p>
       </CardInfo>
     </CardContainer>
   );
