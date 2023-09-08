@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import CardList from './CardList';
+import CardList from './components/CardList/CardList';
 
 const AppContainer = styled.div`
   text-align: center;
