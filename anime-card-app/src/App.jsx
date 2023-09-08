@@ -12,7 +12,8 @@ const Title = styled.h1`
 `;
 
 function App() {
-  const [cards, setCards] = useState([]); // Здесь будет ваш список карточек
+  // Здесь вы можете использовать useState для управления состоянием
+  const [cards, setCards] = useState([]); // Например, массив карточек
 
   // Функции для работы с карточками, добавления, удаления и лайков
 
