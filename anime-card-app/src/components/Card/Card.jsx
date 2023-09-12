@@ -1,7 +1,7 @@
 // Card.js
 
 import React from 'react';
-
+import Button  from '../LikeBtn/likeBtn';
 
 
 
@@ -16,7 +16,7 @@ function Card(props) {
           </div>
           <div className="card-footer">
               <span className="card-price">${props.price}</span>
-              <button className="card-add">Заказать</button>
+              <Button/>
           </div>
       </div>
   );

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const Like = ({ liked, onClick }) => {
+export default function Button (props)
+{
+  const[liked,setLiked]= useState(false);
+  handleChange = () => {
+    setLiked(!liked);
+  }
   return (
-    <div
-      className={`like-icon ${liked ? 'liked' : ''}`}
-      onClick={onClick}
-    >
-      <i className="fa fa-heart"></i>
-    </div>
-  );
-};
+    <button {...props} onClick={handleChange}>
+      {liked ? "liked":"Disliked"}
+    </button>
+  )
 
-export default Like;
+}
+
+
